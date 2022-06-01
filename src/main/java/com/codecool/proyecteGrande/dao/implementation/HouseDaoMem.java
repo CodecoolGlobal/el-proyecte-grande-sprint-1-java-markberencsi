@@ -23,7 +23,7 @@ public class HouseDaoMem implements HouseDao {
 
     @Override
     public void add(House house) {
-
+        houses.add(house);
     }
 
     @Override
