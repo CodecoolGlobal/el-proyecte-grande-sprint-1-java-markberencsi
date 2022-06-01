@@ -18,9 +18,4 @@ public class HouseConfig {
     public HouseService getHouseService(){
         return new HouseService(getHouseDao());
     }
-
-    @Bean
-    public HouseController getHouseController(){
-        return new HouseController(getHouseService());
-    }
 }
