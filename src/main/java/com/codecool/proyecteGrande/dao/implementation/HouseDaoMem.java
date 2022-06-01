@@ -19,6 +19,24 @@ public class HouseDaoMem implements HouseDao {
 
     public HouseDaoMem() {
         houses = new ArrayList<>();
+        readFromFile();
+    }
+
+    private void readFromFile() {
+        try (Reader reader = new InputStreamReader(
+                Objects.requireNonNull(HouseDaoMem.class.getResourceAsStream("/houses.json")))) {
+            Gson gson = new Gson();
+
+            JsonObject data = gson.fromJson(reader, JsonObject.class);
+            JsonArray houses = data.getAsJsonArray("houses");
+
+            for (int i = 0; i < houses.size(); i++) {
+                JsonObject category = houses.get(i).getAsJsonObject();
+                add(new House(category.get("id").getAsInt(), category.get("name").getAsString(), category.get("points").getAsInt(), category.get("description").getAsString()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
