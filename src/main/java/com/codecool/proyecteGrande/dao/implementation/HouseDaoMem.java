@@ -54,7 +54,9 @@ public class HouseDaoMem implements HouseDao {
 
     @Override
     public void remove(int id) {
-
+        houses = houses.stream()
+                .filter(house -> house.getId() != id)
+                .collect(Collectors.toList());
     }
 
     @Override
