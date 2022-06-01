@@ -61,6 +61,10 @@ public class HouseDaoMem implements HouseDao {
 
     @Override
     public List<House> getAll() {
-        return null;
+        List<House> housesCopy = new ArrayList<>();
+        for (House house: houses) {
+            housesCopy.add(new House(house.getId(), house.getName(), house.getPoints(), house.getDescription()));
+        }
+        return housesCopy;
     }
 }
