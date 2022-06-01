@@ -30,6 +30,26 @@ public class Student {
         return id;
     }
 
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public int getHouseId() {
+        return houseId;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
