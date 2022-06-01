@@ -46,7 +46,10 @@ public class HouseDaoMem implements HouseDao {
 
     @Override
     public House find(int id) {
-        return null;
+        return houses.stream()
+                .filter(house -> house.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
