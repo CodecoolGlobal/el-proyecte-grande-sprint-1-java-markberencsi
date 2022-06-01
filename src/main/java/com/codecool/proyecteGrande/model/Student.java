@@ -10,6 +10,8 @@ public class Student {
 
     private String password;
 
+    private int houseId;
+
 
     public Student(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
@@ -19,7 +21,24 @@ public class Student {
         this.password=password;
     }
 
+    public void setHouseId(int houseId){
+        this.houseId=houseId;
+    }
 
 
+    public int getId() {
+        return id;
+    }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", houseId=" + houseId +
+                '}';
+    }
 }

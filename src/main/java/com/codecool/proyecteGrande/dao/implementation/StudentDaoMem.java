@@ -29,4 +29,15 @@ public class StudentDaoMem implements StudentDao {
         return List.copyOf(students);
     }
 
+    @Override
+    public void setHouseById(int studentId, int houseId) {
+        for (Student s:students
+             ) {
+            if (s.getId() == studentId)
+                s.setHouseId(houseId);
+        }
+
+
+    }
+
 }

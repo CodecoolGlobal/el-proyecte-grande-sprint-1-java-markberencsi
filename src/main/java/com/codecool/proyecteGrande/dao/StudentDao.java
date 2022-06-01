@@ -8,5 +8,7 @@ public interface StudentDao {
      void add(Student newStudent);
      List<Student> getAll();
 
+     void setHouseById(int studentId, int houseId);
+
 
 }
