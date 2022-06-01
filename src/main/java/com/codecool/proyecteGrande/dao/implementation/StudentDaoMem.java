@@ -1,11 +1,12 @@
 package com.codecool.proyecteGrande.dao.implementation;
 
+import com.codecool.proyecteGrande.dao.StudentDao;
 import com.codecool.proyecteGrande.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDaoMem {
+public class StudentDaoMem implements StudentDao {
     List<Student> students;
 
     public StudentDaoMem() {
@@ -19,11 +20,11 @@ public class StudentDaoMem {
         students.add(student1);
         students.add(student2);
     }
-
+    @Override
     public void add(Student newStudent) {
         students.add(newStudent);
     }
-
+    @Override
     public List<Student> getAll() {
         return List.copyOf(students);
     }
