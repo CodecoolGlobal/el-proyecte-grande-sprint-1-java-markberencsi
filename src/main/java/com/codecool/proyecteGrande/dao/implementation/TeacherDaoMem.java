@@ -10,14 +10,24 @@ import java.util.List;
 public class TeacherDaoMem implements TeacherDao {
 
     private final List<Teacher> teachers = new ArrayList<>();
+    private int quantityCounter = 0;
+
+    public TeacherDaoMem() {
+        addDummyDataToMemory();
+    }
 
     @Override
     public void addTeacher(Teacher teacher){
+        quantityCounter++;
+        teacher.setId(quantityCounter);
         teachers.add(teacher);
     }
     @Override
     public void addTeacher(String firstName, String lastName, String email, String password, Subject taughtSubject){
-        teachers.add(new Teacher(firstName,lastName,email,password,taughtSubject));
+        quantityCounter++;
+        Teacher newTeacher = new Teacher(firstName,lastName,email,password,taughtSubject);
+        newTeacher.setId(quantityCounter);
+        teachers.add(newTeacher);
     }
     @Override
     public void removeTeacherById(int id){
@@ -43,6 +53,12 @@ public class TeacherDaoMem implements TeacherDao {
             }
         }
         return null;
+    }
+
+    private void addDummyDataToMemory(){
+        teachers.add(new Teacher("Severus", "Snape", "ilovesnakes@hotmail.com","python",Subject.DEFENSE_AGAINST_DARK_ARTS));
+        teachers.add(new Teacher("Dolores","Umbridge","f*ckharrybutnotsexually@citromail.hu","pinkzebra999",Subject.DEFENSE_AGAINST_DARK_ARTS));
+        teachers.add(new Teacher("Rubeus","Hagrid","rubeus.hagrid@gmail.com","MissYouFluffy",Subject.HERBOLOGY));
     }
 
 }
