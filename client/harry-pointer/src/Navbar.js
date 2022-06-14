@@ -8,6 +8,7 @@ import {
   MDBContainer,
   MDBIcon
 } from 'mdb-react-ui-kit';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Navbar() {
   return (
