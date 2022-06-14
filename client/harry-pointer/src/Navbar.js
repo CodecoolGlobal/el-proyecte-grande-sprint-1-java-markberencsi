@@ -9,6 +9,7 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import background from './hogwarts.jpg'
 
 export default function Navbar() {
   return (
@@ -47,8 +48,12 @@ export default function Navbar() {
 }
 
 export const Heading = () => {
-    return  <div className='p-5 text-center bg-light'>
+    return  <div className='p-5 text-center bg-white'
+    style={{ 
+        marginTop: "100px"
+    }}>
                 <h1 className='mb-3'>HOGWARTS</h1>
+                
                 <a className='btn btn-primary' href='' role='button'>
                     Register
                 </a>
