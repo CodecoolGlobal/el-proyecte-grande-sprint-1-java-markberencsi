@@ -9,7 +9,6 @@ import {
   MDBIcon
 } from 'mdb-react-ui-kit';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import background from './hogwarts.jpg'
 
 export default function Navbar() {
   return (
@@ -26,18 +25,18 @@ export default function Navbar() {
           <div className='collapse navbar-collapse' id='navbarExample01'>
             <MDBNavbarNav right className='mb-2 mb-lg-0'>
               <MDBNavbarItem active>
-                <MDBNavbarLink aria-current='page' href='#'>
+                <MDBNavbarLink aria-current='page' href='/'>
                   Home
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Students</MDBNavbarLink>
+                <MDBNavbarLink href='/'>Students</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Teachers</MDBNavbarLink>
+                <MDBNavbarLink href='/'>Teachers</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Houses</MDBNavbarLink>
+                <MDBNavbarLink href='/'>Houses</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </div>
@@ -54,7 +53,7 @@ export const Heading = () => {
     }}>
                 <h1 className='mb-3'>HOGWARTS</h1>
                 
-                <a className='btn btn-primary' href='' role='button'>
+                <a className='btn btn-primary' href='/' role='button'>
                     Register
                 </a>
             </div>;
