@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./houses.css"
+import CSSModules from "react-css-modules";
+import styles from "./houses.module.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchGetAll } from "./api/houseApi";
 
@@ -18,11 +19,11 @@ const Houses = () => {
                 <div className="container">
                     {
                         houses.map((house) => {
-                            return <div className="box col-xs-6" key={house.id}>
-                                        <div className="inner">
-                                            <a href="/" className="click">
-                                                <div className="flex_this">
-                                                    <h1 className="title">{house.name}</h1>
+                            return <div className="col-xs-6" key={house.id} styleName="box">
+                                        <div styleName="inner">
+                                            <a href="/" styleName="click">
+                                                <div styleName="flex_this">
+                                                    <h1 styleName="title">{house.name}</h1>
                                                     <p>{house.description}</p>
                                                 </div>
                                             </a>
@@ -34,4 +35,4 @@ const Houses = () => {
             </div>;
 }
 
-export default Houses;
+export default CSSModules(Houses, styles);
