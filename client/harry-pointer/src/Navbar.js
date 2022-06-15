@@ -25,7 +25,7 @@ export default function Navbar() {
           <div className='collapse navbar-collapse' id='navbarExample01'>
             <MDBNavbarNav right className='mb-2 mb-lg-0'>
               <MDBNavbarItem active>
-              <Link to='/' className='nav-link'>Home</Link>
+                <Link to='/' className='nav-link'>Home</Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <Link to='/' className='nav-link'>Students</Link>
