@@ -45,14 +45,15 @@ export default function Navbar() {
 }
 
 export const Heading = () => {
-    return  <div className='p-5 text-center bg-white'
+    return  <div className='p-5 text-center bg-dark'
     style={{ 
-        marginTop: "100px"
+        margin: "40px 50px 0",
+        borderRadius: "10px"
     }}>
-                <h1 className='mb-3'>HOGWARTS</h1>
+                <h1 className='mb-3'>Welcome to Hogwarts School of Witchcraft and Wizardry!</h1>
                 
                 <a className='btn btn-primary' href='/' role='button'>
-                    Register
+                    Become a wizard
                 </a>
             </div>;
 };
