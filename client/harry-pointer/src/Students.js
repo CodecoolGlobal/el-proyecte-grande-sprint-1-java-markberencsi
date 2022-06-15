@@ -13,7 +13,9 @@ const Students =  () => {
     }, []);
     const students = data
     return (
+
         <div style={{background:"whitesmoke"}}>
+            <h1>Students</h1>
             <ol type="1">
                 <> {students.map(student => <li style={{color: "black"}}  key={student.id}>{student.firstName} {student.lastName} {student.email}</li>)}</>
             </ol>
