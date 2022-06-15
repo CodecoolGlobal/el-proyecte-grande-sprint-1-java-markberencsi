@@ -14,10 +14,12 @@ const Students =  () => {
     const students = data
     return (
 
-        <div style={{background:"whitesmoke"}}>
-            <h1>Students</h1>
+        <div className='p-5 text-center bg-dark' style={{
+            margin: "40px 50px 0",
+            borderRadius: "10px"}}>
+            <h1>Our students</h1>
             <ol type="1">
-                <> {students.map(student => <li style={{color: "black"}}  key={student.id}>{student.firstName} {student.lastName} {student.email}</li>)}</>
+                <> {students.map(student => <li style={{color: "whitesmoke"}}  key={student.id}>{student.firstName} {student.lastName} {student.email}</li>)}</>
             </ol>
         </div>
 
