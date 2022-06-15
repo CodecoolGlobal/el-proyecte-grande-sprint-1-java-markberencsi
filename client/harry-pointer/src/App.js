@@ -7,11 +7,12 @@ import { fetchGetAll } from './houses/api/houseApi';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 import Students from "./Students";
+import api from "./api";
 
 function App() {
   fetchGetAll();
   return (
-    <div className="App" style={{ 
+    <div className="App" style={{
         backgroundImage: `url(${background})`,
         backgroundSize:"contain",
         backgroundRepeat: "no-repeat",
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Heading />} />
           <Route path='/houses' element={<Houses />} />
+            <Route path='/students' element={<Students />} />
         </Routes>
       </BrowserRouter>
     </div>
