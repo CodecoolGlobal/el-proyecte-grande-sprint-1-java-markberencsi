@@ -11,13 +11,7 @@ import {ProjectCardsFlip, TeacherList} from "./Teacher";
 function App() {
   fetchGetAll();
   return (
-    <div className="App" style={{ 
-        backgroundImage: `url(${background})`, 
-        backgroundSize:"contain", 
-        backgroundRepeat: "no-repeat",
-        width: "auto",
-        height: "850px"
-    }}>
+    <div className="App">
       <BrowserRouter>
         <Navbar />
         <Routes>
