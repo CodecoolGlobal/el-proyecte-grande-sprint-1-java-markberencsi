@@ -6,13 +6,14 @@ import Houses from './houses/Houses'
 import { fetchGetAll } from './houses/api/houseApi';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
+import Students from "./Students";
 
 function App() {
   fetchGetAll();
   return (
     <div className="App" style={{ 
-        backgroundImage: `url(${background})`, 
-        backgroundSize:"contain", 
+        backgroundImage: `url(${background})`,
+        backgroundSize:"contain",
         backgroundRepeat: "no-repeat",
         width: "auto",
         height: "850px"
