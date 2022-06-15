@@ -1,0 +1,66 @@
+/*
+	Using Bootstrap
+*/
+
+/* PEN STYLES ========== */
+.row {
+	margin: 0;
+}
+
+.box {
+	padding: 0;
+}
+.box .inner {
+	background: #333;
+	display: block;
+	margin: 10px;
+	overflow: hidden;
+}
+.box .inner .click {
+	align-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,.1);
+	color: rgb(93,0,0);;
+	display: flex;
+	flex-wrap: wrap;
+	height: 300px;
+	mix-blend-mode: normal;
+	text-align: center;
+	text-decoration: none;
+	transition: all 300ms ease;
+}
+.box .inner .click:hover {
+	background-color: rgba(0,100,255,.5); 
+	mix-blend-mode: hard-light;
+}
+.flex_this {
+	align-content: center;
+	height: auto;
+	margin: 0;
+	padding: 10px;
+	transition: all 300ms ease;
+	width: 100%;
+
+}
+.box .inner .click:hover .flex_this {
+	margin-top: -5px;
+}
+
+.title {
+	display: block;
+	font-weight: 700;
+	margin: 0 0 20px;
+	width: 100%;
+}
+
+.box .inner {
+	background: rgb(0,144,135);
+	background: linear-gradient(90deg, rgba(0,144,135,1) 5%, rgba(54,227,184,1) 36%, rgba(0,226,79,1) 75%);
+}
+
+.box p{
+	display: block;
+	font-weight: 400;
+	margin: 0 50px 20px;
+	width: auto;
+}
