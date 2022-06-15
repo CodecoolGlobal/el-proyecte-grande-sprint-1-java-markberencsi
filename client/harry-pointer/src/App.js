@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Navbar';
 import{ Heading } from './Navbar';
 import background from './hogwarts.jpg'
+import Students from "./Students";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
   }}>
       <Navbar />
       <Heading />
+        {/*<Students  students={getStudents()}/>*/}
     </div>
   );
 }
