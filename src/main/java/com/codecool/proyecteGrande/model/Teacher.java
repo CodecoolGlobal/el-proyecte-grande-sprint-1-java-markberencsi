@@ -38,8 +38,8 @@ public class Teacher {
         return password;
     }
 
-    public Subject getTaughtSubject() {
-        return taughtSubject;
+    public String getTaughtSubject() {
+        return taughtSubject.toString();
     }
 
     public void setId(int id) {
