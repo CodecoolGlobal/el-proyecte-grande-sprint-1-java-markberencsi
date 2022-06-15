@@ -28,7 +28,7 @@ export default function Navbar() {
                 <Link to='/' className='nav-link'>Home</Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <Link to='/' className='nav-link'>Students</Link>
+                <Link to='/students' className='nav-link'>Students</Link>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <Link to='/teachers' className='nav-link'>Teachers</Link>

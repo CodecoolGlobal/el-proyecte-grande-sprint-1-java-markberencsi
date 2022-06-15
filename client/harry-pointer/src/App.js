@@ -7,6 +7,8 @@ import { fetchGetAll } from './houses/api/houseApi';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import {ProjectCardsFlip, TeacherList} from "./Teacher";
 
+import Students from "./Students";
+import api from "./api";
 
 function App() {
   fetchGetAll();
@@ -18,6 +20,7 @@ function App() {
           <Route exact path='/' element={<Heading />} />
           <Route path='/houses' element={<Houses />} />
           <Route path='/teachers' element={<ProjectCardsFlip/>}/>
+            <Route path='/students' element={<Students />} />
         </Routes>
       </BrowserRouter>
     </div>
