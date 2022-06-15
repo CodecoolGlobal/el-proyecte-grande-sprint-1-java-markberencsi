@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import api from "./api";
-import "./teacher.css";
+import style from "./teacher.module.css";
 
 
 
@@ -31,21 +31,21 @@ export const ProjectCardsFlip = () => {
 
     return (
         <>
-            <div className="teacherTitle"><h1>Our Teachers</h1></div>
+            <div className={style.teacherTitle}><h1>Our Teachers</h1></div>
             {teachers.map(teacher =>
         <div key={teacher.id}>
-            <div className="wrapper">
-                <div className="cols">
-                    <div className="col" onTouchStart="this.classList.toggle('hover');">
-                        <div className="container">
-                            <div className="front">
-                                <div className="inner">
+            <div className={style.wrapper}>
+                <div className={style.cols}>
+                    <div className={style.col} onTouchStart="this.classList.toggle('hover');">
+                        <div className={style.container}>
+                            <div className={style.front}>
+                                <div className={style.inner}>
                                     <p>{teacher.firstName} {teacher.lastName}</p>
                                     <span>{teacher.taughtSubject}</span>
                                 </div>
                             </div>
-                            <div className="back">
-                                <div className="inner">
+                            <div className={style.back}>
+                                <div className={style.inner}>
                                     <span>
                     Click here to apply for this subject!{" "}
                                     </span>
