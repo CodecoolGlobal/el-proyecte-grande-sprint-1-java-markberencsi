@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS Student CASCADE;
-CREATE TABLE Student(
+CREATE TABLE student(
                         id SERIAL NOT NULL PRIMARY KEY,
                         first_name varchar NOT NULL,
                         last_name varchar NOT NULL,
