@@ -13,9 +13,4 @@ public class HouseConfig {
     public HouseDao getHouseDao(){
         return new HouseDaoMem();
     }
-
-    @Bean
-    public HouseService getHouseService(){
-        return new HouseService(getHouseDao());
-    }
 }
