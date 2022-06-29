@@ -35,6 +35,7 @@ public class StudentEntity {
     @Column(columnDefinition = "integer default 0")
     private Integer points;
 
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
