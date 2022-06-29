@@ -1,5 +1,9 @@
 package com.codecool.proyecteGrande.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +25,7 @@ public class HouseEntity {
     private Long id;
     private String name;
     private String description;
+
+    @OneToMany(mappedBy = "house")
+    private Set<StudentEntity> students;
 }
