@@ -18,4 +18,8 @@ public class HouseService {
     public List<HouseEntity> getAll(){
         return houseRepository.findAll();
     }
+
+    public HouseEntity getById(Long id){
+        return houseRepository.findById(id).get();
+    }
 }
