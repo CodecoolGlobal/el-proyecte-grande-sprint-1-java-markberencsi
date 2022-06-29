@@ -25,6 +25,10 @@ public class HouseEntity {
     private Long id;
     private String name;
     private String description;
+    @Transient
+    private int totalPoints;
+    @Transient
+    private int standing;
 
     @OneToMany(mappedBy = "house")
     private Set<StudentEntity> students;
