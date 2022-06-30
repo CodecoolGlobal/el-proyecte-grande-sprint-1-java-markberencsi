@@ -16,14 +16,8 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-
-//    @GetMapping("all")
-//    public List<Student> getStudents(){
-//       return  studentService.getAllStudents();
-//    }
     @GetMapping("all")
     public List<StudentDTO> getAllStudents(){
-        System.out.println(studentService.getAllStudents());
         return  studentService.getAllStudents();
     }
 

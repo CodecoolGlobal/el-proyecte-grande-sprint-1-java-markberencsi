@@ -2,7 +2,6 @@ import api from "./api";
 import {useEffect, useState} from "react";
 
 
-
 const Students =  () => {
 
     const [data, setData] = useState([])
@@ -24,6 +23,7 @@ const Students =  () => {
     const students = filteredData.length > 0 ? filteredData  : data
     console.log(filteredData.length)
     console.log(students)
+
     return (
 
         <div className='p-5 text-center bg-dark' style={{
