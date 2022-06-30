@@ -21,8 +21,7 @@ const Students =  () => {
         });
     }, []);
     const students = filteredData.length > 0 ? filteredData  : data
-    console.log(filteredData.length)
-    console.log(students)
+
 
     return (
 
