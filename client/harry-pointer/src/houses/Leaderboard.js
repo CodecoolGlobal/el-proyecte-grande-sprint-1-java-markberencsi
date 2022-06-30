@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { fetchGetAll } from "./api/houseApi";
 import CSSModules from "react-css-modules";
 import styles from "./leaderboard.module.css"
+import StudentLeaderboard from "./StudentLeaderboard";
+
+export const StudentContext = createContext(null);
+export const HouseNameContext = createContext(null)
 
 const Leaderboard = () => {
     const [firstHouse, setFirstHouse] = useState({});
@@ -12,7 +16,7 @@ const Leaderboard = () => {
     useEffect(() => {
         const getData = async () => {
             const data = await fetchGetAll();
-            data.sort((a, b) => a.standing > b.standing ? -1 : 1)
+            await data.sort((a, b) => a.standing > b.standing ? -1 : 1)
             setFirstHouse(data[0]);
             setSecondHouse(data[1]);
             setThirdHouse(data[2]);
@@ -55,6 +59,28 @@ const Leaderboard = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div styleName="students-container">
+                    <StudentContext.Provider value={firstHouse?.students ?? []}>
+                        <HouseNameContext.Provider value={firstHouse?.name ?? ""}>
+                            <StudentLeaderboard/>
+                        </HouseNameContext.Provider>
+                    </StudentContext.Provider>
+                    <StudentContext.Provider value={secondHouse?.students ?? []}>
+                    <HouseNameContext.Provider value={secondHouse?.name ?? ""}>
+                            <StudentLeaderboard/>
+                        </HouseNameContext.Provider>
+                    </StudentContext.Provider>
+                    <StudentContext.Provider value={thirdHouse?.students ?? []}>
+                    <HouseNameContext.Provider value={thirdHouse?.name ?? ""}>
+                            <StudentLeaderboard/>
+                        </HouseNameContext.Provider>
+                    </StudentContext.Provider>
+                    <StudentContext.Provider value={fourthHouse?.students ?? []}>
+                    <HouseNameContext.Provider value={fourthHouse?.name ?? ""}>
+                            <StudentLeaderboard/>
+                        </HouseNameContext.Provider>
+                    </StudentContext.Provider>
                 </div>
             </div>
 }

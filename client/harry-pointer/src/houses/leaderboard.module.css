@@ -13,12 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
 }
 
 .card{
-  min-height: 475px;
-  width: 275px;
+  width: 80vw;
   margin: 2rem;
+  padding-bottom: 1rem;
   border-radius: 15px;
   background: #02383C;
 }
@@ -27,25 +28,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
   color: #ddd;
 }
 
 .card .header .title{
   font-weight: 300;
-}
-
-::selection{
-  background: rgba(210, 255, 213, 0.3);
-}
-
-.photo{
-  width: 75px;
-  background: #fff;
-  border-radius: 50%;
-  border: 5px solid cyan;
-  box-shadow: 0 0 20px cyan;
-  margin: 1rem 0;
 }
 
 .main{
@@ -54,7 +42,7 @@
 
 .profile{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-top: 1rem;
 }
@@ -65,11 +53,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transform: scale(2);
 }
 
 .profile .person.first{
   z-index: 10;
-  transform: translateY(-30%);
+  transform: translateY(-30%) scale(2);
 }
 
 .first .fa-crown{
@@ -101,12 +90,6 @@
   margin-left: 0.7rem !important;
 }
 
-.p_img{
-  width: 50px;
-  background: #fff;
-  border-radius: 50%;
-}
-
 .flex{
   display: flex;
   align-items: center;
@@ -115,9 +98,11 @@
 .others{
   display: flex;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   align-items: center;
   justify-content: center;
+  transform: scale(2);
 }
 
 .info{
@@ -150,4 +135,11 @@
 
 .rank .num{
   margin: 0 !important; 
+}
+
+.students-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 95vw;
 }
