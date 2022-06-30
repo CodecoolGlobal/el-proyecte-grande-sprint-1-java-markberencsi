@@ -3,6 +3,7 @@ import CSSModules from "react-css-modules";
 import styles from "./houses.module.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { fetchGetAll } from "./api/houseApi";
+import { Link } from "react-router-dom";
 
 const Houses = () => {
     const [houses, setHouses] = useState([]);
@@ -21,12 +22,12 @@ const Houses = () => {
                         houses.map((house) => {
                             return <div className="col-xs-6" key={house.id} styleName="box">
                                         <div styleName="inner">
-                                            <a href="/" styleName="click">
+                                            <Link to={house.name} styleName="click">
                                                 <div styleName="flex_this">
                                                     <h1 styleName="title">{house.name}</h1>
                                                     <p>{house.description}</p>
                                                 </div>
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                         })

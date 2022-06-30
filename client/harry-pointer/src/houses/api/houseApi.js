@@ -12,3 +12,12 @@ export const fetchGetAll = async () => {
         console.log(error.response);
     }
 }
+
+export const fetchGetByName = async (name) => {
+    try {
+        const response = await api.get("/api/houses/name/" + name);
+        return response.data;
+    } catch (error) {
+        console.log(error.response);
+    }
+}
