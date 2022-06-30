@@ -29,13 +29,7 @@ const Students =  () => {
         <div className='p-5 text-center bg-dark' style={{
             margin: "40px 50px 0",
             borderRadius: "10px"}}>
-
             <h1>Our students</h1>
-            <input style={{marginBottom:20}}
-                placeholder='Search...'
-                onChange={(e) => searchItems(e.target.value)
-                }
-            />
             <ol type="1">
                  <> {students.map(student => <li style={{color: "whitesmoke"}}  key={student.id}>{student.first_name} {student.last_name} {student.email} {student.house.name} </li>)}</>
             </ol>
