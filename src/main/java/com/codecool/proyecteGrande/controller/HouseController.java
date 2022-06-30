@@ -28,4 +28,9 @@ public class HouseController {
     public HouseEntity getHouseById(@PathVariable("house_id") Long id){
         return houseService.getById(id);
     }
+
+    @GetMapping("/name/{house_name}")
+    public HouseEntity getHouseByName(@PathVariable("house_name") String name){
+        return houseService.getByName(name);
+    }
 }

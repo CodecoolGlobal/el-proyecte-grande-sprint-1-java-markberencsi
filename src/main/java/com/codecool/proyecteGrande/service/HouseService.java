@@ -27,6 +27,12 @@ public class HouseService {
         return house;
     }
 
+    public HouseEntity getByName(String name){
+        HouseEntity house = houseRepository.findByName(name);
+        setPoints(house);
+        return house;
+    }
+
     private void setPoints(HouseEntity house){
          house.setTotalPoints(house.getStudents().stream()
                 .map(StudentEntity::getPoints)
