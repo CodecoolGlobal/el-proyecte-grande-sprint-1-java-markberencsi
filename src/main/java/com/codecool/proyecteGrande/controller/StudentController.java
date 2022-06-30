@@ -1,7 +1,6 @@
 package com.codecool.proyecteGrande.controller;
 
-import com.codecool.proyecteGrande.model.Student;
-import com.codecool.proyecteGrande.model.StudentEntity;
+import com.codecool.proyecteGrande.DTO.StudentDTO;
 import com.codecool.proyecteGrande.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,8 +22,9 @@ public class StudentController {
 //       return  studentService.getAllStudents();
 //    }
     @GetMapping("all")
-    public List<StudentEntity> getAllStudents(){
-        return  studentService.getAll();
+    public List<StudentDTO> getAllStudents(){
+        System.out.println(studentService.getAllStudents());
+        return  studentService.getAllStudents();
     }
 
 }

@@ -37,7 +37,7 @@ const Students =  () => {
                 }
             />
             <ol type="1">
-                 <> {students.map(student => <li style={{color: "whitesmoke"}}  key={student.id}>{student.first_name} {student.last_name} {student.email}</li>)}</>
+                 <> {students.map(student => <li style={{color: "whitesmoke"}}  key={student.id}>{student.first_name} {student.last_name} {student.email} {student.house.name} </li>)}</>
             </ol>
         </div>
 
