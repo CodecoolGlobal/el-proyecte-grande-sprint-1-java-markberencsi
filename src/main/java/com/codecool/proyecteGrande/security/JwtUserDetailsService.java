@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
@@ -22,7 +24,8 @@ public class JwtUserDetailsService implements UserDetailsService {
         }
         UserDetails user = User.builder()
                 .username(student.getEmail())
-                .password(student.getPassword()).build();
+                .password(student.getPassword())
+                .authorities(new ArrayList<>()).build();
         return user;
     }
 }
