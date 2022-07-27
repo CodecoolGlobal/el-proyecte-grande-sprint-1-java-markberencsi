@@ -17,7 +17,7 @@ public class JwtTokenUtil implements Serializable {
 
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
-    private String secret = "secret";
+    private final String secret = "secret";
 
     private Claims getAllClaimsFromToken(String token){
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
