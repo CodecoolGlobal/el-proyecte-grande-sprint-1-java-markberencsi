@@ -32,6 +32,14 @@ public class JwtTokenUtil implements Serializable {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
+    public Date getExpirationFromToken(String token){
+        return getClaimFromToken(token, Claims::getExpiration);
+    }
+
+    public boolean isExpired(String token){
+        return new Date(System.currentTimeMillis()).after(getExpirationFromToken(token));
+    }
+
     private String createToken(Map<String, Object> claims, String subject){
         return Jwts.builder()
                 .setClaims(claims)
