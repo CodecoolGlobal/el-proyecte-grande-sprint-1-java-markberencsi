@@ -23,4 +23,10 @@ public class JwtTokenUtil implements Serializable {
         Claims claims = getAllClaimsFromToken(token);
         return claimsConverter.apply(claims);
     }
+
+    public String getUserNameFromToken(String token){
+        return getClaimFromToken(token, Claims::getSubject);
+    }
+
+
 }
