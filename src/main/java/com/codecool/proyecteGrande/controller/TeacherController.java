@@ -13,9 +13,10 @@ import java.util.List;
 @RestController
 @RequestMapping("api/teachers")
 public class TeacherController {
-    @Autowired
-    private TeacherService teacherService;
 
+    private final TeacherService teacherService;
+
+    @Autowired
     public TeacherController(TeacherService teacherService) {
         this.teacherService = teacherService;
     }

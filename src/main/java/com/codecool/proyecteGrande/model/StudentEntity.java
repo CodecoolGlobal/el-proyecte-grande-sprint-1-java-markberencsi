@@ -1,6 +1,11 @@
 package com.codecool.proyecteGrande.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import net.bytebuddy.build.HashCodeAndEqualsPlugin;
 
 import javax.persistence.*;
 
@@ -8,7 +13,6 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Builder
 @Table(name ="student")
 public class StudentEntity {
@@ -31,9 +35,10 @@ public class StudentEntity {
     @Column(columnDefinition = "integer default 0")
     private Integer points;
 
-//TODO: connect with house
-//    @JoinColumn(name = "house_id",referencedColumnName = "id")
-//    private House house;
-
-
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "house_id", referencedColumnName = "id")
+    private HouseEntity house;
 }

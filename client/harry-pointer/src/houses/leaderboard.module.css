@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: "Josefin Sans", Arial;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.students-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 95vw;
+}

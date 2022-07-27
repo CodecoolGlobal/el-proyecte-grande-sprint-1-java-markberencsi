@@ -36,6 +36,9 @@ export default function Navbar() {
               <MDBNavbarItem>
                 <Link to='/houses' className='nav-link'>Houses</Link>
               </MDBNavbarItem>
+              <MDBNavbarItem>
+                <Link to='/leaderboard' className='nav-link'>Leaderboard</Link>
+              </MDBNavbarItem>
             </MDBNavbarNav>
           </div>
         </MDBContainer>

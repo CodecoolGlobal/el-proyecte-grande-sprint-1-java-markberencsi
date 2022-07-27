@@ -1,22 +1,48 @@
 package com.codecool.proyecteGrande.service;
 
-import com.codecool.proyecteGrande.dao.HouseDao;
-import com.codecool.proyecteGrande.model.House;
+import com.codecool.proyecteGrande.dao.HouseRepository;
+import com.codecool.proyecteGrande.model.HouseEntity;
+import com.codecool.proyecteGrande.model.StudentEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.*;
 
-@Component
+@Service
 public class HouseService {
     @Autowired
-    private HouseDao houseDao;
+    private HouseRepository houseRepository;
 
-    public HouseService(HouseDao houseDao) {
-        this.houseDao = houseDao;
+    public List<HouseEntity> getAll(){
+        List<HouseEntity> houses = houseRepository.findAll();
+        houses.forEach(this::setPoints);
+        setStanding(houses);
+        return houses;
     }
 
-    public List<House> getAll(){
-        return houseDao.getAll();
+    public HouseEntity getById(Long id){
+        HouseEntity house = houseRepository.findById(id).get();
+        setPoints(house);
+        return house;
+    }
+
+    public HouseEntity getByName(String name){
+        HouseEntity house = houseRepository.findByName(name);
+        setPoints(house);
+        return house;
+    }
+
+    private void setPoints(HouseEntity house){
+         house.setTotalPoints(house.getStudents().stream()
+                .map(StudentEntity::getPoints)
+                .reduce(0, Integer::sum));
+    }
+
+    private void setStanding(List<HouseEntity> houses){
+        houses.sort(Comparator.comparingInt(HouseEntity::getTotalPoints));
+        houses.forEach(
+                houseEntity -> houseEntity.setStanding(houses.indexOf(houseEntity)+1)
+        );
     }
 }

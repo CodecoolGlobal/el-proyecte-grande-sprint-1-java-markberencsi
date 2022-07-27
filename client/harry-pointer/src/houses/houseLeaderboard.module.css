@@ -1,0 +1,128 @@
+
+.card{
+  width: 80vw;
+  margin: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 15px;
+  background: #02383C;
+}
+
+.card .header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #ddd;
+}
+
+.card .header .title{
+  font-weight: 300;
+}
+
+.main{
+  width: 85px;
+}
+
+.profile{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.profile .person{
+  display: flex;
+  margin: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: scale(2);
+}
+
+.profile .person.first{
+  z-index: 10;
+  transform: translateY(-30%) scale(2);
+}
+
+.first .fa-crown{
+  color: gold;
+  filter: drop-shadow(0px 0px 5px gold);
+}
+
+.num{
+  color: white;
+}
+
+.link{
+  margin: 0.2rem 0;
+  color: #fff;
+  margin-top: -0.3rem;
+  font-size: 13px;
+}
+
+.points{
+  color: cyan;
+  font-size: 17px;
+}
+
+.second{
+  margin-right: 0.7rem !important;
+}
+
+.third{
+  margin-left: 0.7rem !important;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.others{
+  display: flex;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  transform: scale(2);
+}
+
+.info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+  background: rgba(210, 255, 213, 0.3);
+}
+
+.info .points{
+  margin-left: 0.2rem;
+  margin-right: 1.2rem;
+}
+
+.info .link{
+  margin: 0 1rem;
+}
+
+.rank{
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+  flex-direction: column-reverse;
+}
+
+.rank i{
+  margin-top: -5px !important;
+}
+
+.rank .num{
+  margin: 0 !important; 
+}
+
+.students-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 95vw;
+}

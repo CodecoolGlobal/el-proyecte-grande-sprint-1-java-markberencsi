@@ -1,12 +1,10 @@
 package com.codecool.proyecteGrande.controller;
 
 import com.codecool.proyecteGrande.model.House;
+import com.codecool.proyecteGrande.model.HouseEntity;
 import com.codecool.proyecteGrande.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +20,17 @@ public class HouseController {
     }
 
     @GetMapping("/all")
-    public List<House> getHouses(){
+    public List<HouseEntity> getHouses(){
         return houseService.getAll();
+    }
+
+    @GetMapping("/{house_id}")
+    public HouseEntity getHouseById(@PathVariable("house_id") Long id){
+        return houseService.getById(id);
+    }
+
+    @GetMapping("/name/{house_name}")
+    public HouseEntity getHouseByName(@PathVariable("house_name") String name){
+        return houseService.getByName(name);
     }
 }

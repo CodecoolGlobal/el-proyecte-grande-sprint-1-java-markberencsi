@@ -1,0 +1,43 @@
+/* container */
+.container {
+	width: 22vw;
+	height: auto;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* leaderboard */
+.leaderboard {
+	background: linear-gradient(to bottom, #3a404d, #181c26);
+}
+
+/* head */
+.leaderboard .head {
+	padding: 20px 16px;
+	color: snow;
+	font-size: 20px;
+	text-align: center;
+}
+
+/* body */
+.leaderboard .body {
+	color: snow;
+	font-size: 16px;
+}
+.leaderboard ol {
+	counter-reset: number;
+}
+.leaderboard li {
+	padding: 16px;
+	display: flex;
+	justify-content: space-between;
+}
+.leaderboard li mark {
+	color: snow;
+	background-color: transparent;
+}
+.leaderboard li:before {
+	counter-increment: number;
+	content: counter(number) ".";
+	margin-right: 4px;
+}
