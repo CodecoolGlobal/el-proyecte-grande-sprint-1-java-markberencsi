@@ -55,7 +55,7 @@ export const Heading = () => {
     }}>
                 <h1 className='mb-3'>Welcome to Hogwarts School of Witchcraft and Wizardry!</h1>
                 
-                <a className='btn btn-primary' href='/' role='button'>
+                <a className='btn btn-primary' href='/signup' role='button'>
                     Become a wizard
                 </a>
             </div>;

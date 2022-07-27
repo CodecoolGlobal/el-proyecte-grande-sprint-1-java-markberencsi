@@ -5,6 +5,7 @@ import Houses from './houses/Houses'
 import { fetchGetAll } from './houses/api/houseApi';
 import { Route, BrowserRouter, Routes, Outlet } from 'react-router-dom';
 import {ProjectCardsFlip} from "./Teacher";
+import {SignupForm} from "./Signup";
 
 import Students from "./Students";
 import Leaderboard from './houses/Leaderboard';
@@ -25,6 +26,7 @@ function App() {
           <Route path='/teachers' element={<ProjectCardsFlip/>}/>
           <Route path='/students' element={<Students />} />
           <Route path='/leaderboard' element={<Leaderboard />} />
+          <Route path='/signup' element={<SignupForm />} />
         </Routes>
       </BrowserRouter>
     </div>
