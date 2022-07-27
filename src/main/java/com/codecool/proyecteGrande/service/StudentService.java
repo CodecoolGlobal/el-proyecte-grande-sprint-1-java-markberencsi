@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentService {
     StudentDao studentDao;
@@ -29,6 +30,8 @@ public class StudentService {
     public List<StudentEntity> getAll(){
         return studentRepository.findAllByOrderByIdAsc();
     }
+
+    public Optional<StudentEntity> getStudentById(Long id){return studentRepository.findById(id);}
 
     public List<StudentDTO> getAllStudents(){
         List<StudentDTO> students = new ArrayList<>();
