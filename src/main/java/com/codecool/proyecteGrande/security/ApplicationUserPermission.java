@@ -2,8 +2,9 @@ package com.codecool.proyecteGrande.security;
 
 public enum ApplicationUserPermission {
     STUDENT_READ("student:read"),
-    ADMIN_READ("admin:read"),
-    ADMIN_WRITE("admin:write");
+    STUDENT_WRITE("student:write"),
+    SUBJECT_READ("subject:read"),
+    SUBJECT_WRITE("subject:write");
 
     private final String permission;
 
