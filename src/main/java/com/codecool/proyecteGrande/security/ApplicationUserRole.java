@@ -14,4 +14,14 @@ public enum ApplicationUserRole {
     ApplicationUserRole(Set<ApplicationUserPermission> permissions){
         this.permissions = permissions;
     }
+
 }
+
+
+
+
+//TODO: put this into configure function
+// .antMatchers(HttpMethod.DELETE, "/api/student/**").hasAuthority(STUDENT.WRITE.getPermission()))
+// .antMatchers(HttpMethod.POST, "/api/student/**").hasAuthority(STUDENT.WRITE.getPermission()))
+// .antMatchers(HttpMethod.PUT, "/api/student/**").hasAuthority(STUDENT.WRITE.getPermission()))
+// .antMatchers( "/api/student/**").hasAnyRole(ADMIN.name()))
