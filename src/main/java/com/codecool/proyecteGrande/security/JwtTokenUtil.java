@@ -3,6 +3,7 @@ package com.codecool.proyecteGrande.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -52,5 +53,9 @@ public class JwtTokenUtil implements Serializable {
     public String generateToken(String user){
         Map<String,Object> claims = new HashMap<>();
         return createToken(claims, user);
+    }
+
+    public boolean validateToken(String token, UserDetails user){
+        return getUserNameFromToken(token).equals(user.getUsername()) && !isExpired(token);
     }
 }
