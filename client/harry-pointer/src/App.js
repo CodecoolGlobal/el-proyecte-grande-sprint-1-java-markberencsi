@@ -2,7 +2,6 @@ import './App.css';
 import Navbar from './Navbar';
 import{ Heading } from './Navbar';
 import Houses from './houses/Houses'
-import { fetchGetAll } from './houses/api/houseApi';
 import { Route, BrowserRouter, Routes, Outlet } from 'react-router-dom';
 import {ProjectCardsFlip} from "./Teacher";
 import {SignupForm} from "./Signup";
@@ -13,7 +12,6 @@ import Leaderboard from './houses/Leaderboard';
 import HouseDetail from './houses/HouseDetail';
 
 function App() {
-  fetchGetAll();
   return (
     <div className="App">
       <BrowserRouter>
