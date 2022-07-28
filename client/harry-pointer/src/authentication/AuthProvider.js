@@ -19,8 +19,11 @@ const AuthProvider = ({children}) => {
 
     const login = async (username, password, callback) => {
         const token = await getToken(username, password);
-        setAccessToken(token);
-        localStorage.setItem("accessToken", token);
+        if(token)
+        {
+            setAccessToken(token);
+            localStorage.setItem("accessToken", token);
+        }
         callback();
     }
 
