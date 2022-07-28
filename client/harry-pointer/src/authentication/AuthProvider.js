@@ -15,7 +15,7 @@ const getToken = async (emailOrUsername, password) => {
 }
 
 const AuthProvider = ({children}) => {
-    const [accesToken, setAccessToken] = useState(localStorage.getItem('accessToken'));
+    const [accessToken, setAccessToken] = useState(localStorage.getItem('accessToken'));
 
     const login = async (username, password, callback) => {
         const token = await getToken(username, password);
@@ -29,7 +29,7 @@ const AuthProvider = ({children}) => {
         setAccessToken(null);
     }
 
-    const values = {accesToken, login, logout};
+    const values = {accessToken, login, logout};
 
     return <AuthContext.Provider value={values}>
         {children}

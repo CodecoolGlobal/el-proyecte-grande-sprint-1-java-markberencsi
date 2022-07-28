@@ -6,8 +6,8 @@ const api = axios.create({
 
 api.interceptors.request.use(
     request => {
-        const accesToken = localStorage.getItem('accessToken');
-        request.headers["Authorization"] = "Bearer " + accesToken;
+        const accessToken = localStorage.getItem('accessToken');
+        request.headers["Authorization"] = "Bearer " + accessToken;
         return request;
     },
     error => {
