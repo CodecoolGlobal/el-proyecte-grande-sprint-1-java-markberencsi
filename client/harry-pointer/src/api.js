@@ -6,7 +6,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
     request => {
-        const accesToken = localStorage.getItem('accesToken');
+        const accesToken = localStorage.getItem('accessToken');
         request.headers["Authorization"] = "Bearer " + accesToken;
         return request;
     },
@@ -17,16 +17,12 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
     (response) => {
-        console.log(response.status);
         return response;
     },
     error => {
-        console.log(error);
         const response = error.response;
         if(response.status === 401) {
-            window.location.href = "/login";
         }
-        console.log(error);
         return Promise.reject(error);
     }
 )
