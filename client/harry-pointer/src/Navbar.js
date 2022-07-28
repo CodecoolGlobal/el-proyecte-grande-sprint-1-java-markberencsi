@@ -9,8 +9,11 @@ import {
 } from 'mdb-react-ui-kit';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
+import { useAuth } from './authentication/RequiredAuth';
 
 export default function Navbar() {
+  const auth = useAuth();
+
   return (
     <header>
       <MDBNavbar expand='lg' light bgColor='white'>
@@ -40,6 +43,9 @@ export default function Navbar() {
                 <Link to='/leaderboard' className='nav-link'>Leaderboard</Link>
               </MDBNavbarItem>
             </MDBNavbarNav>
+            {auth.accesToken ?
+              <button className='btn btn-primary' onClick={auth.logout}>Logout</button>
+              : <Link to='/login' className='btn btn-primary'>Login</Link>}
           </div>
         </MDBContainer>
       </MDBNavbar>
