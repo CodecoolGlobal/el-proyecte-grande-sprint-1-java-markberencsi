@@ -74,7 +74,7 @@ class SignupForm extends React.Component {
                     <label>
                         Username
                         <input
-                            name="accountName"
+                            name="first_name"
                             type="text"
                             value={this.state.accountName}
                             onChange={this.handleInputChange}
