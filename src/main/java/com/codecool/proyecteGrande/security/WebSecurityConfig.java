@@ -46,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/error").permitAll() //default error page unblocked
                 .antMatchers("/api/login").permitAll()
+                .antMatchers("/api/signup").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling()

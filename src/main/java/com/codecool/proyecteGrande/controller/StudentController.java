@@ -1,6 +1,7 @@
 package com.codecool.proyecteGrande.controller;
 
 import com.codecool.proyecteGrande.DTO.StudentDTO;
+import com.codecool.proyecteGrande.model.StudentEntity;
 import com.codecool.proyecteGrande.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
