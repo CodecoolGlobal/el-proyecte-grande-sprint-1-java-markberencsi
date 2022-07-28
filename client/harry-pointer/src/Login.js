@@ -1,29 +1,23 @@
 
 import React, { useState } from "react";
-import api from "./api";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "./authentication/RequiredAuth";
 import style from "./signup.module.css";
-
-const getToken = async (emailOrUsername, password) => {
-    try {
-        const response = await api.post("/api/login", {
-            email: emailOrUsername,
-            password: password
-        });
-        return response.data;
-    } catch (error) {
-        console.log(error.response);
-    }
-}
 
 // Define the Login form component
 const LoginForm = () => {
     const [emailOrUsername, setEmailOrUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const auth = useAuth();
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const accesToken = await getToken(emailOrUsername, password);
-        localStorage.setItem("accesToken", accesToken);
+        await auth.login(emailOrUsername, password, () => {
+            navigate(location.state?.form?.pathname || "/", {replace: true});
+        });
     }
 
     return (
