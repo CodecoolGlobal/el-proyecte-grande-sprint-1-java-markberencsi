@@ -10,6 +10,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom';
 import { useAuth } from './authentication/RequiredAuth';
+import jwtDecode from 'jwt-decode';
 
 export default function Navbar() {
   const auth = useAuth();
@@ -43,7 +44,7 @@ export default function Navbar() {
                 <Link to='/leaderboard' className='nav-link'>Leaderboard</Link>
               </MDBNavbarItem>
             </MDBNavbarNav>
-            {auth.accesToken ?
+            {auth.accessToken ?
               <button className='btn btn-primary' onClick={auth.logout}>Logout</button>
               : <Link to='/login' className='btn btn-primary'>Login</Link>}
           </div>
@@ -54,15 +55,17 @@ export default function Navbar() {
 }
 
 export const Heading = () => {
+    const auth = useAuth();
+
     return  <div className='p-5 text-center bg-dark'
     style={{ 
         margin: "40px 50px 0",
         borderRadius: "10px"
-    }}>
-                <h1 className='mb-3'>Welcome to Hogwarts School of Witchcraft and Wizardry!</h1>
+    }}>         
+                {!auth.accessToken ?
+                <><h1 className='mb-3'>Welcome to Hogwarts School of Witchcraft and Wizardry!</h1>
+                <a className='btn btn-primary' href='/signup' role='button'>Become a wizard</a></>
+                : <h1>Welcome back {jwtDecode(auth.accessToken).first_name} {jwtDecode(auth.accessToken).last_name}!</h1>}
                 
-                <a className='btn btn-primary' href='/signup' role='button'>
-                    Become a wizard
-                </a>
             </div>;
 };
