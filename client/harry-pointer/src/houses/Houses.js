@@ -25,7 +25,6 @@ const Houses = () => {
                                             <Link to={house.name} styleName="click">
                                                 <div styleName="flex_this">
                                                     <h1 styleName="title">{house.name}</h1>
-                                                    <p>{house.description}</p>
                                                 </div>
                                             </Link>
                                         </div>

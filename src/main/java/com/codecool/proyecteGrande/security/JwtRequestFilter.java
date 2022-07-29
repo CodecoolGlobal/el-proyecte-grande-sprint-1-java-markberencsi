@@ -1,6 +1,7 @@
 package com.codecool.proyecteGrande.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
@@ -32,16 +33,19 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
         //checking if the token was added in the request
         //and is still active
-        if(requestToken != null){
-            jwToken = requestToken;
+        if(requestToken != null && requestToken.startsWith("Bearer ")){
+            jwToken = requestToken.substring(7);
             try {
-                username = jwtTokenUtil.getUserNameFromToken(requestToken);
+                username = jwtTokenUtil.getUserNameFromToken(jwToken);
             }
             catch (IllegalArgumentException e){
                 System.out.println("JWT token does not exist");
             }
             catch (ExpiredJwtException e){
                 System.out.println("JWT token has expired");
+            }
+            catch (MalformedJwtException e){
+                System.out.println("JWT token is not correctly formatted or empty");
             }
         }
 

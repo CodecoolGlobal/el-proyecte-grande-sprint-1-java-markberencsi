@@ -1,8 +1,11 @@
 package com.codecool.proyecteGrande.security;
 
+import com.codecool.proyecteGrande.dao.StudentRepository;
+import com.codecool.proyecteGrande.model.StudentEntity;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +17,8 @@ import java.util.function.Function;
 
 @Component
 public class JwtTokenUtil implements Serializable {
+    @Autowired
+    private StudentRepository studentRepository;
     private static final long serialVersionUID = -2550185165626007488L;
 
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
@@ -52,6 +57,9 @@ public class JwtTokenUtil implements Serializable {
 
     public String generateToken(String user){
         Map<String,Object> claims = new HashMap<>();
+        StudentEntity student = studentRepository.findByEmail(user);
+        claims.put("first_name", student.getFirst_name());
+        claims.put("last_name", student.getLast_name());
         return createToken(claims, user);
     }
 

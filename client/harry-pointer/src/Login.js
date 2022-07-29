@@ -1,67 +1,51 @@
 
-import Userfront from "@userfront/core";
-import React from "react";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "./authentication/RequiredAuth";
 import style from "./signup.module.css";
 
-Userfront.init("demo1234");
-
 // Define the Login form component
-class LoginForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            emailOrUsername: "",
-            password: "",
-        };
+const LoginForm = () => {
+    const [emailOrUsername, setEmailOrUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    const navigate = useNavigate();
+    const location = useLocation();
+    const auth = useAuth();
 
-    handleInputChange(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const target = event.target;
-        this.setState({
-            [target.name]: target.value,
+        await auth.login(emailOrUsername, password, () => {
+            navigate(location.state?.form?.pathname || "/", {replace: true});
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        Userfront.login({
-            method: "password",
-            emailOrUsername: this.state.emailOrUsername,
-            password: this.state.password,
-        });
-    }
-
-    render() {
-        return (
-            <div className={style.signup_container}>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Your e-mail
-                        <input
-                            name="emailOrUsername"
-                            type="text"
-                            value={this.state.emailOrUsername}
-                            onChange={this.handleInputChange}
-                        />
-                    </label>
-                    <label>
-                        Password
-                        <input
-                            name="password"
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                        />
-                    </label>
-                    <button className={style.signup_button} type="submit">Log in</button>
-                </form>
-            </div>
-        );
-    }
+    return (
+        <div className={style.signup_container}>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Your e-mail
+                    <input
+                        name="emailOrUsername"
+                        type="text"
+                        value={emailOrUsername}
+                        onChange={e => setEmailOrUsername(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Password
+                    <input
+                        name="password"
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                </label>
+                <button className={style.signup_button} type="submit">Log in</button>
+            </form>
+        </div>
+    );
+    
 }
 
 export { LoginForm };
