@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  psql:
+    image: harry-db:1.0
+    user: postgres
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: harry_pointer
+
+  app:
+    image: harry-backend:1.1
+    ports:
+      - 8080:8080
+    working_dir: /harry-pointer
+    environment:
+      dbUrl: jdbc:postgresql://psql:5432/harry_pointer
+      dbUsername: postgres
+      dbPassword: secret
