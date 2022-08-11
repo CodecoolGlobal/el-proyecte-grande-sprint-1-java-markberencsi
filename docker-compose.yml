@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: harry_pointer
 
-  app:
+  backend:
     image: harry-backend:1.1
     ports:
       - 8080:8080
@@ -17,3 +17,9 @@ services:
       dbUrl: jdbc:postgresql://psql:5432/harry_pointer
       dbUsername: postgres
       dbPassword: secret
+
+  frontend:
+    image: harry-frontend:latest
+    ports:
+    - 3000:3000
+    working_dir: /harry
